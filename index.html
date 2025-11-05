@@ -1213,7 +1213,14 @@
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
-                <p class="copyright">© 2025 Gymnastiar Ishaq Al Husain — All Rights Reserved</p>
+                <p class="copyright">
+                    © <span id="year"></span> Gymnastiar Ishaq Al Husain — All Rights Reserved
+                </p>
+
+                <script>
+                    document.getElementById("year").textContent = new Date().getFullYear();
+                </script>
+
             </div>
         </div>
     </footer>
