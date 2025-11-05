@@ -168,6 +168,7 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -573,6 +574,65 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Leadership Section */
+        .leadership-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .leadership-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .leadership-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .leadership-title {
+            flex: 1;
+        }
+
+        .leadership-date {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .leadership-description ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .leadership-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .leadership-description li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -599,6 +659,8 @@
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-links a {
@@ -673,27 +735,33 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 padding: 2rem 0;
                 box-shadow: var(--shadow);
-                transform: translateY(-100%);
+                transform: translateX(-100%);
                 opacity: 0;
                 transition: var(--transition);
                 z-index: 999;
             }
 
             .nav-links.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
             }
 
             .nav-links li {
-                margin: 0.75rem 0;
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
             }
 
             .mobile-menu {
@@ -718,6 +786,19 @@
                 max-width: 250px;
                 justify-content: center;
             }
+
+            .leadership-container {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .leadership-date {
+                align-self: flex-start;
+            }
         }
 
         @media (max-width: 576px) {
@@ -737,6 +818,24 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .timeline-content {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -754,6 +853,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                 </ul>
@@ -835,44 +935,44 @@
 
     <!-- Education Section -->
     <section id="education">
-    <div class="container">
-        <div class="section-title fade-in">
-            <div class="section-icon">
-                <i class="fas fa-graduation-cap"></i>
+        <div class="container">
+            <div class="section-title fade-in">
+                <div class="section-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2>Education</h2>
             </div>
-            <h2>Education</h2>
+            <div class="timeline">
+                <!-- Pendidikan Kuliah -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Agt 2021 – Jul 2025</span>
+                        <h3>Universitas Muhammadiyah Gresik</h3>
+                        <p>Bachelor of Informatics, Informatics Engineering</p>
+                        <p>GPA: 3.66/4.00</p>
+                        <p><strong>Courses:</strong> Pemrograman Dasar, Pemrograman Web, Basis Data, Struktur Data, Algoritma, Sistem Operasi, Rekayasa Perangkat Lunak, Analisis dan Perancangan Sistem, Jaringan Komputer, Keamanan Informasi, Kecerdasan Buatan, Manajemen Proyek IT, Sistem Informasi, Pengolahan Data, Analisis Data.</p>
+                    </div>
+                </div>
+                
+                <!-- Pendidikan SMA -->
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jul 2018 – Mei 2021</span>
+                        <h3>SMA Nahdlatul Ulama 1 Gresik</h3>
+                        <p>Jurusan IPA</p>
+                        <p>Nilai Rata-rata: 86.81</p>
+                        <p>Selama masa SMA, saya aktif dalam kegiatan pembelajaran dan mengembangkan dasar-dasar ilmu pengetahuan alam yang menjadi fondasi untuk melanjutkan pendidikan di bidang teknologi dan informatika.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="timeline">
-            <!-- Pendidikan Kuliah -->
-            <div class="timeline-item fade-in">
-                <div class="timeline-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <div class="timeline-content">
-                    <span class="timeline-date">Agt 2021 – Jul 2025</span>
-                    <h3>Universitas Muhammadiyah Gresik</h3>
-                    <p>Bachelor of Informatics, Informatics Engineering</p>
-                    <p>GPA: 3.66/4.00</p>
-                    <p><strong>Courses:</strong> Pemrograman Dasar, Pemrograman Web, Basis Data, Struktur Data, Algoritma, Sistem Operasi, Rekayasa Perangkat Lunak, Analisis dan Perancangan Sistem, Jaringan Komputer, Keamanan Informasi, Kecerdasan Buatan, Manajemen Proyek IT, Sistem Informasi, Pengolahan Data, Analisis Data.</p>
-                </div>
-            </div>
-            
-            <!-- Pendidikan SMA -->
-            <div class="timeline-item fade-in">
-                <div class="timeline-icon">
-                    <i class="fas fa-school"></i>
-                </div>
-                <div class="timeline-content">
-                    <span class="timeline-date">Jul 2018 – Mei 2021</span>
-                    <h3>SMA Nahdlatul Ulama 1 Gresik</h3>
-                    <p>Jurusan IPA</p>
-                    <p>Nilai Rata-rata: 86.81</p>
-                    <p>Selama masa SMA, saya aktif dalam kegiatan pembelajaran dan mengembangkan dasar-dasar ilmu pengetahuan alam yang menjadi fondasi untuk melanjutkan pendidikan di bidang teknologi dan informatika.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Experience Section -->
     <section id="experience" class="bg-light">
@@ -929,14 +1029,38 @@
                 </div>
                 <h2>Leadership Experience</h2>
             </div>
-            <div class="skills-container">
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-mosque"></i> Remaja Masjid Nurul Iman</h3>
-                    <p><strong>Bendahara</strong> (Jan 2023 – Jan 2024)</p>
+            <div class="leadership-container">
+                <div class="leadership-card fade-in">
+                    <div class="leadership-header">
+                        <div class="leadership-title">
+                            <h3><i class="fas fa-mosque"></i> Remaja Masjid Nurul Iman</h3>
+                            <p><strong>Bendahara</strong></p>
+                        </div>
+                        <span class="leadership-date">Jan 2023 - Jan 2024</span>
+                    </div>
+                    <div class="leadership-description">
+                        <ul>
+                            <li>Mengelola dan mencatat seluruh transaksi keuangan kegiatan keagamaan dan sosial remaja masjid secara terstruktur.</li>
+                            <li>Bertanggung jawab atas penyusunan laporan keuangan dan pengelolaan dana kas.</li>
+                            <li>Mendukung pelaksanaan berbagai program keagamaan seperti kajian, bakti sosial, dan kegiatan remaja masjid.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-hands-helping"></i> Karang Taruna Kerapu</h3>
-                    <p><strong>Bendahara Umum</strong> (Jul 2023 – Sekarang)</p>
+                <div class="leadership-card fade-in">
+                    <div class="leadership-header">
+                        <div class="leadership-title">
+                            <h3><i class="fas fa-hands-helping"></i> Karang Taruna Kerapu</h3>
+                            <p><strong>Bendahara Umum</strong></p>
+                        </div>
+                        <span class="leadership-date">Jul 2023 - Sekarang</span>
+                    </div>
+                    <div class="leadership-description">
+                        <ul>
+                            <li>Mencatat pemasukan dan pengeluaran kegiatan secara teratur.</li>
+                            <li>Menyusun laporan keuangan yang transparan dan terstruktur.</li>
+                            <li>Mendukung pelaksanaan program kerja Karang Taruna, termasuk kegiatan kepemudaan dan sosial masyarakat.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1065,6 +1189,7 @@
                     <a href="#about">About</a>
                     <a href="#education">Education</a>
                     <a href="#experience">Experience</a>
+                    <a href="#leadership">Leadership</a>
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
                 </div>
@@ -1088,8 +1213,6 @@
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </div>
-                </div>
-                <h1></h1>
                 <p class="copyright">© 2025 Gymnastiar Ishaq Al Husain — All Rights Reserved</p>
             </div>
         </div>
@@ -1102,6 +1225,25 @@
 
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            // Toggle icon between bars and times
+            const icon = mobileMenu.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
 
         // Download CV Button
@@ -1164,6 +1306,9 @@
                     
                     // Close mobile menu if open
                     navLinks.classList.remove('active');
+                    const icon = mobileMenu.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
                 }
             });
         });
